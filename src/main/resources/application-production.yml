@@ -1,0 +1,9 @@
+server:
+  port: 9090
+logging:
+  file: logs/production_profile_app.log
+  pattern:
+    file: "%d %-5level [%thread] %logger{0}: %msg%n"
+  level:
+    org.springframework.web: WARN
+    net.ivancl4udio.apps.thymeleafAndSbAdmin: WARN
