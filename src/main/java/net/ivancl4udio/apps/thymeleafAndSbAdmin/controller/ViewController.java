@@ -12,14 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-public class SessionController {
+public class ViewController {
 
-	@GetMapping("/exemplo")
-	public String exemplo() {
-		return "exemplo";
-	}
-
-	
 	/**
 	 * Metodo que recebe a requisição '/login' do tipo GET e redireciona para o template do Thymeleaf
 	 * @return String relativa ao nome do template do Thymeleaf
