@@ -2,6 +2,8 @@ package net.ivancl4udio.apps.thymeleafAndSbAdmin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 /**
  * Classe responsável por tratar as requisições vindas do usuário as redirecionando para a página template correta
@@ -10,13 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  *
  */
 @Controller
-public class SessionController {
+public class ViewController {
 
 	/**
 	 * Metodo que recebe a requisição '/login' do tipo GET e redireciona para o template do Thymeleaf
 	 * @return String relativa ao nome do template do Thymeleaf
 	 */
-	@GetMapping("/login")
+	@RequestMapping(value="/{locale:en|pt_BR}/login")
 	public String login() {
 		return "login";
 	}
@@ -46,15 +48,6 @@ public class SessionController {
 	@GetMapping("/")
 	public String home() {
 		return "index";
-	}
-
-	/**
-	 * Metodo que recebe a requisição '/error404' do tipo GET e redireciona para o template do Thymeleaf
-	 * @return String relativa ao nome do template do Thymeleaf
-	 */
-	@GetMapping("/error404")
-	public String error404() {
-		return "404";
 	}
 
 	/**

@@ -3,104 +3,177 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>net.ivancl4udio.apps</groupId>
 	<artifactId>ThymeleafWithSbAdminAndWebJars</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>ThymeleafWithSbAdminAndWebJars</name>
+	<name>Thymeleaf with SbAdmin and WebJars</name>
 	<description>Demo project for Spring Boot Thymeleaf and SB Admin</description>
 
+	<!-- Project Properties -->
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
+	<!-- SCM Configuration (Necessary for Maven Release Plugin) -->
+	<scm>
+		<url>https://github.com/IvanCl4udio/sbadmin-thymeleaf</url>
+		<connection>scm:git:https://github.com/IvanCl4udio/sbadmin-thymeleaf.git</connection>
+		<developerConnection>scm:git:https://github.com/IvanCl4udio/sbadmin-thymeleaf.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
 	<dependencies>
+		<!-- Web Dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<!-- Removed to solve the problem of multiples bindings SLF4J -->
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-to-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
+		<!-- HTML Template using Thymeleaf -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<exclusions>
+				<!-- Removed to solve the problem of multiples bindings SLF4J -->
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-api</artifactId>
+				</exclusion>
+
+			</exclusions>
 		</dependency>
-		
+		<!-- Partials and Fragments with Thymeleaf -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+		<!-- Plugin for Webjars with version agnostic -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator</artifactId>
 			<version>0.30</version>
 		</dependency>
-		
+		<!-- SBAdmin Dependencies -->
+		<!-- FontAwesome -->
 		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>font-awesome</artifactId>
-		    <version>5.8.1</version>
+			<groupId>org.webjars</groupId>
+			<artifactId>font-awesome</artifactId>
+			<version>5.8.1</version>
 		</dependency>
-		
+		<!-- JQuery -->
 		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>jquery</artifactId>
-		    <version>3.4.1</version>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.4.1</version>
 		</dependency>
-		
+		<!-- Bootstrap 4 -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>4.3.1</version>
 		</dependency>
+		<!-- JQuery-Easing -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-easing</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<!-- Chart.js -->
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>chart.js</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<!-- DatatablesJS -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>datatables</artifactId>
+			<version>1.10.19</version>
+		</dependency>
+		<!-- Springboot Tools -->
 		
-		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>jquery-easing</artifactId>
-		    <version>1.4.1</version>
-		</dependency>
-			
-		<dependency>
-		    <groupId>org.webjars.bower</groupId>
-		    <artifactId>chart.js</artifactId>
-		    <version>2.8.0</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>datatables</artifactId>
-		    <version>1.10.19</version>
-		</dependency>
-	
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		
+		<!-- Springboot Tomcat Configuration -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+		<!-- Springboot Tests -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+		<!-- Maven Release Plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-release-plugin</artifactId>
+			<version>2.5.3</version>
+			<exclusions>
+				<exclusion>
+					<!-- Removed to solve the problem of multiples bindings SLF4J -->
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-nop</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 	</dependencies>
 
 	<build>
+		<!-- Remove version information from name  -->
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
+			<!-- Springboot Maven Plugin Configurations -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-                    <addResources>true</addResources>
-                </configuration>
+					<addResources>true</addResources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/resources/distribution/distribution.xml</descriptor>
+					</descriptors>
+					<finalName>TSBAW-distribution</finalName>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
