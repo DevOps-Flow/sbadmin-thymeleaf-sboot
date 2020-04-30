@@ -18,7 +18,7 @@ public class ViewController {
 	 * Metodo que recebe a requisição '/login' do tipo GET e redireciona para o template do Thymeleaf
 	 * @return String relativa ao nome do template do Thymeleaf
 	 */
-	@RequestMapping(value="/{locale:en|pt_BR}/login")
+	@RequestMapping(value="/login")
 	public String login() {
 		return "login";
 	}
