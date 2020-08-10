@@ -1,4 +1,4 @@
-package net.ivancl4udio.apps.thymeleafAndSbAdmin;
+package net.ivancl4udio.apps.SBAdminJava;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
