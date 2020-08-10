@@ -1,4 +1,4 @@
-package net.ivancl4udio.apps.thymeleafAndSbAdmin.controller;
+package net.ivancl4udio.apps.SBAdminJava.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
