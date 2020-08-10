@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ThymeleafWithSbAdminAndWebJars.iml" filepath="$PROJECT_DIR$/ThymeleafWithSbAdminAndWebJars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SBAdmin-Java.iml" filepath="$PROJECT_DIR$/SBAdmin-Java.iml" />
     </modules>
   </component>
 </project>
