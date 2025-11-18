@@ -34,6 +34,12 @@
 	</scm>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- Web Dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
