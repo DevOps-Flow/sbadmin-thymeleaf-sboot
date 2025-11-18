@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SBAdminJava<SBAdmin-Java>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "net.ivancl4udio.apps.SBAdminJava.SBAdminJava",
+            "projectName": "SBAdmin-Java",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
